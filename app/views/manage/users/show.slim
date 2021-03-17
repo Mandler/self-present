@@ -1,0 +1,35 @@
+div.row
+  div.col-6.right-border
+    h3 = current_user.full_name
+    p
+      | Stanowisko: 
+      b = current_user.job_title
+
+    p
+      | Technologie:
+      b  Ruby, Ruby on Rails, Postgres, Sidekiq, Redis
+
+    div
+      | Poziom doświadczenia
+      ul
+        li Ruby 4/5
+        li Ruby on Rails 4/5
+        li Postgres 3/5
+        li Sidekiq 3/5
+        li Redis 3/5
+
+  div.col-6
+    table.table
+      thead
+        tr
+          th
+          th name
+          th created at
+          th updated at
+      tbody
+        - @records.each do |record|
+          tr
+            td = image_tag(record["owner"]["avatar_url"], class: 'xs-image')
+            td = record["name"]
+            td = record["created_at"].to_date
+            td = record["updated_at"].to_date

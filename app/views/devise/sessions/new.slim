@@ -1,0 +1,14 @@
+.col-4.offset-4.text-center
+  h2 Self Presentation
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field.mb-3.mt-5.input-group
+      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'email', aria_label: 'email'
+
+    .field.mb-3.input-group
+      = f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: 'password', aria_label: 'password'
+
+    .actions.mb-3
+      = f.submit "Log in", class: 'btn btn-primary'
+
+  = render "devise/shared/links"

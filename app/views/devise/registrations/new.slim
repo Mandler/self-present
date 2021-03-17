@@ -1,0 +1,19 @@
+.col-4.offset-4.text-center
+  h2 Sign up
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+
+    .field.mb-3.input-group
+      = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'email', aria_label: 'email'
+
+    .field.mb-3.input-group
+      = f.password_field :password, autocomplete: 'new-password', class: 'form-control', placeholder: 'password', aria_label: 'password'
+
+    .field.mb-3.input-group
+      = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control', placeholder: 'password confirmation', aria_label: 'password confirmation'
+
+    .actions.mb-3
+      = f.submit "Sign up", class: 'btn btn-primary'
+
+  = render "devise/shared/links"

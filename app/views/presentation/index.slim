@@ -1,0 +1,6 @@
+div.row
+  - @users.each do |user|
+    .col-4 = user.email
+
+  - if @users.empty?
+    .col-12.text-center Empty
