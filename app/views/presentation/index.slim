@@ -1,6 +1,6 @@
 div.row
   - @users.each do |user|
-    .col-4 = user.email
+    .col-4 = link_to user.email, presentation_path(user.id)
 
   - if @users.empty?
     .col-12.text-center Empty

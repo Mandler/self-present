@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :presentation, only: %w(index show)
   namespace :manage do
-    resource :user, only: %w[show update]
+    resource :user, only: %w(show update)
   end
 end

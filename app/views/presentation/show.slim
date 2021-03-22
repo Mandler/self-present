@@ -1,0 +1,41 @@
+div.row
+  div.col-6.right-border
+    h3 = @user.full_name
+    p
+      | Stanowisko: 
+      b = @user.job_title
+
+    p
+      | Technologie: 
+      b = @user.technologies_title
+
+    div
+      | Poziom doświadczenia
+      ul
+        - @user.technologies.each do |technology|
+          li
+            | #{technology.title} 
+            - technology.level.times do
+              = image_tag 'star-fill', class: 'mr-1'
+            - (Technology::MAX_LEVEL - technology.level).times do
+              = image_tag 'star', class: 'mr-1'
+
+  div.col-6
+    - if @github_records.any?
+      table.table
+        thead
+          tr
+            th
+            th name
+            th created at
+            th updated at
+        tbody
+          - @github_records.each do |record|
+            tr
+              td = image_tag(record["owner"]["avatar_url"], class: 'xs-image')
+              td = record["name"]
+              td = record["created_at"].to_date
+              td = record["updated_at"].to_date
+    - else
+      h3.text-center No repositories
+
